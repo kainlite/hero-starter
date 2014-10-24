@@ -114,6 +114,8 @@ var moves = {
     var myHero = gameData.activeHero;
     if (myHero.health < 50) {
       return helpers.findNearestHealthWell(gameData);
+    } else if (myHero.health < 80) {
+      return helpers.findNearestNonTeamDiamondMine(gameData);
     } else {
       return helpers.findNearestWeakerEnemy(gameData);
     }
