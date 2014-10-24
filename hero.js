@@ -117,7 +117,12 @@ var moves = {
     } else if (myHero.health < 80) {
       return helpers.findNearestNonTeamDiamondMine(gameData);
     } else {
-      return helpers.findNearestWeakerEnemy(gameData);
+      var closestWeakestEnemy = helpers.findNearestWeakerEnemy(gameData);
+      if (closestWeakestEnemy) {
+        return closestWeakestEnemy;
+      } else {
+        return helpers.findNearestEnemy(gameData);
+      }
     }
   },
 
